@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 # create docs/_data/sidebars/home_sidebar.yml
 # from   docs_src/sidebar/sidebar_data.py
@@ -16,7 +16,7 @@ sys.path.append(str(Path("docs_src")/"sidebar"))
 from sidebar_data import sidebar_d
 
 def _leaf(k,v):
-    url = 'external_url' if "/" in v else 'url'
+    url = 'external_url' if "http" in v else 'url'
     if url=='url': v=v+'.html'
     return {'title':k, url:v, 'output':'web,pdf'}
 

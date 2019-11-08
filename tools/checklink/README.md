@@ -4,11 +4,18 @@ This is https://github.com/w3c/link-checker with some custom tweaks.
 
 ## Prerequisites
 
-Install:
+* Debian/Ubuntu:
 
-```
-sudo apt install w3c-linkchecker
-```
+   ```
+   sudo apt install w3c-linkchecker
+   ```
+   
+* Mac OS:
+
+   ```bash
+   brew install perl # Make sure that we have the most updated perl version installed
+   perl -MCPAN -e 'install W3C::LinkChecker' # Install the link checker
+   ```
 
 See "More on Prerequisites" below for other ways to install this prerequisite if the above doesn't work.
 
@@ -35,7 +42,7 @@ This is an order of magnitude faster check, since the tool doesn't need to throt
 
 Usage:
 ```
-cd checklink
+cd tools/checklink
 ./checklink-docs-local.sh
 ```
 
@@ -46,14 +53,12 @@ Note, that if you have just committed changes to git, wait a few minutes for git
 Check `(docs*|course-v3).fast.ai` for broken links and anchors:
 
 ```
-cd checklink
+cd tools/checklink
 ./checklink-docs.sh
-./checklink-docs-dev.sh
 ./checklink-course-v3.sh
 ```
 
-Each file logs to console and also into `checklink-docs.log`,
-`checklink-docs-dev.log` and `checklink-course-v3.log`
+Each file logs to console and also into `checklink-docs.log` and `checklink-course-v3.log`
 
 If you're on windows w/o bash and assuming you have [perl installed](https://learn.perl.org/installing/windows.html), you can run it directly like:
 
@@ -128,6 +133,6 @@ install pp
 This will build a portable executable version for your platform (it's portable in a sense that it doesn't need any of its many dependencies). e.g. for linux:
 
 ```
-cd checklink
+cd tools/checklink
 pp -o checklink-linux checklink
 ```
